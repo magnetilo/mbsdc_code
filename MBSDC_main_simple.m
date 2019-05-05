@@ -1,7 +1,7 @@
-%%% Main file for running MBSD framework (for one 1D measurement of
+%%% Main file for running MBSDC framework (for one 1D measurement of
 %%% horizontal eye position) %%%
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % First, the script loads the struct 'signals' in the workspace containing:
 %
@@ -11,8 +11,8 @@
 %       samplingRate    % Sampling rate of the data
 %       dataLen         % # samples of the data (dataLen==N)
 %
-% Optionally for evaluation purpose, it could also contain the following
-% signals (if known, e.g., from simulation):
+% Optionally for evaluation purpose, the struct 'signals' could also contain the following
+% data (if known, e.g., from simulation):
 %
 %   signals.
 %       posTrue         % True (noise-free) eye position
@@ -31,8 +31,8 @@
 %       durations
 %       numOfSaccades   % # true saccades in the data
 %
-% After running this script, the struct signals contain all the signals
-% calculated by the MBSD framework:
+% After running this script, the struct 'signals' contain all the signals
+% calculated by the MBSDC framework:
 %
 %   signals.
 %       posEstim          % Estimated eye position (dimension 1xN)
@@ -80,23 +80,26 @@
 %       cohensKappa       % [kappaTotal, kappaFixations, kappaSpem,
 %                            kappaPSOs, kappaSaccades, kappaBlinks]
 
+% Add that folder plus all subfolders to the path:
+addpath(genpath('.'));
+
 %% Load sinusoidal SPEM recording:
 recording = 'naiveSPEM'; %'trainedSPEM'; %
 path = ['data/sineTarget/' recording '.folge'];
 signals = loadSineTargetData(path);
 
-% %% Load monkey data:
-% %  (For obtaining the monkey data, please contact ...)
-% signalsAll = loadMonkeyData(); % Firs choose data file and then eye 1!
-% signals = signalsAll{8};
-
 % %% Simulate saccade data:
 % [signals, saccadeParamsTrue] = generateSaccades('repeat', 3, 'sigmaNoise', 0.1, 'concatenate', true);
+
+% %% Load monkey data:
+% %  (For obtaining the monkey data, please see README.txt)
+% signalsAll = loadMonkeyData(); % First choose data file and then eye 1!
+% signals = signalsAll{8};
 
 %% Algorithm parameters:
 %  For details how to chose the parameters see section III.H of the paper
 plantModelType = 'Zhou09Human'; %'Zhou09Monkey'; %'Bahill80' %
-spemModelType = 'sinusoidalVelocity'; %'firstOrderHold'; %'none'; %
+spemModelType = 'sinusoidalVelocity'; %'firstOrderHold'; %
 
 sigmaFem = 0.2;   % [N/s]
 sigmaSpem = 0.5;  % [N/s^2]
@@ -111,18 +114,18 @@ sigmaNoiseUpdate = true; % [true/false] Estimate sigmaNoise? (otherwise fixed to
 alphaNoise = 0.5;
 
 alphaSacc = 0.5;
-betaSacc = 10e-6;
+betaSacc = 10e-7;
 
 alphaBlink = 8;
-betaBlink = 10e-6;
+betaBlink = 10e-7;
 
 
-%% Run MBSD framework:
+%% Run MBSDC framework:
 [signals, ...
  SSM, ...
  saccadeParamsEstim, ...
  blinksEstim] ...
-    = MBSD(signals, ...
+    = MBSDC(signals, ...
         'sigmaNoiseInit', sigmaNoiseInit, ...
         'sigmaNoiseUpdate', sigmaNoiseUpdate, ...
         'alphaNoise', alphaNoise, ...

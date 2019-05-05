@@ -1,7 +1,7 @@
 function mainSeqPlot(saccadeParamsTrueAll, signalsAllMBSD, signalsAllOptimFilt, signalsAllWeakFilt, signalsAllStrongFilt)
 %%% Function for peak-velocity mean and std. dev. plot (Fig. 6 in paper)
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Prerequisited steps:
 %  1. Generate saccade data with 
@@ -116,5 +116,5 @@ set(gca,'xtick',0:2:20)%[0.6 1.2 2.5 5 10 20])
 set(0, 'DefaultFigureRenderer', 'painters');
 axis tight
 
-ylabel('Peak Velocity [°/s]')
-xlabel('Amplitude [°]')
+ylabel('Peak Velocity [?/s]')
+xlabel('Amplitude [?]')

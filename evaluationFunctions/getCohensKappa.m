@@ -1,7 +1,7 @@
 function cohensKappa = getCohensKappa(class1, class2)
 %%% Cohen's Kappa values between class vectors classTrue and classEstim
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Output:
 %   @cohens_kappa: array of kappa values (length = m+1, where m is the

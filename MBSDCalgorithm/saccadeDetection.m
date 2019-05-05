@@ -1,7 +1,7 @@
 function saccadeParams = saccadeDetection(pos, vel, acc, time, varargin)
 %%% Saccade detection
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Output: 
 %   saccadeParams

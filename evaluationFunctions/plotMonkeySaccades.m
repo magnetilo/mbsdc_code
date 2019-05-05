@@ -1,7 +1,7 @@
 function plotMonkeySaccades(signals, saccadeParamsEstim, varargin)
 %%% Plot monkey saccades (Fig. 7 in paper)
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Inputs:
 %  1. Estimated 'signals' for given menkey data (containing in addition to

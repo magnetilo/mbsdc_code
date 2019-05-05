@@ -3,7 +3,7 @@ function SSM = loadSSM(sigmaNoise, sigmaFem, sigmaSpem, ...
 %%% Load complete SSM of physiological and measurement model of eye
 %%% movements
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % inputs:
 %   sigmaNoise

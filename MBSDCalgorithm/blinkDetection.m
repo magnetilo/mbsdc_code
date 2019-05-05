@@ -1,7 +1,7 @@
 function blinks = blinkDetection(blinkInputs, vel, acc, Ts, varargin)
 %%% Blink detection
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Output: 
 %   blinks
@@ -13,7 +13,7 @@ addOptional(p, 'MIN_PEAK_VEL', 1000, @isnumeric);
 addOptional(p, 'ACC_THRES', 3000, @isnumeric);
 addOptional(p, 'VEL_THRES', 20, @isnumeric);
 addOptional(p, 'VEL_THRES2', 5, @isnumeric);
-addOptional(p, 'MIN_BLINK_DURATION_IN_SEC', 0.04, @isnumeric);
+addOptional(p, 'MIN_BLINK_DURATION_IN_SEC', 0.03, @isnumeric);
 parse(p,varargin{:});
 
 MIN_PEAK_VEL = p.Results.MIN_PEAK_VEL;
@@ -28,14 +28,16 @@ endIds = [];
 % Get potential blink start IDs:
 [~, peakVelocityIds] = findpeaks(abs(vel), 'MinPeakHeight', MIN_PEAK_VEL);
 [msg, id] = lastwarn;
-warning('off',id)
+if ~isempty(id)
+    warning('off',id)
+end
 blinkInputIds = find(abs(blinkInputs)>0.1);
 blinkStartIds = sort([peakVelocityIds blinkInputIds]);
 
 for i=1:length(blinkStartIds)
     % Get start index of blink:
-    maxStartId = find(abs(vel(1:blinkStartIds(i)-ceil(MIN_BLINK_DURATION_IN_SEC/Ts))) ...
-        >= VEL_THRES2, 1, 'last') - ceil(MIN_BLINK_DURATION_IN_SEC/Ts);
+    maxStartId = find(abs(vel(1:blinkStartIds(i)-ceil(MIN_BLINK_DURATION_IN_SEC/Ts/4))) ...
+        >= VEL_THRES2, 1, 'last') - ceil(MIN_BLINK_DURATION_IN_SEC/Ts/4);
     startId = find(abs(vel(1:maxStartId-1)) <= VEL_THRES ...
         & abs(acc(1:maxStartId-1)) <= ACC_THRES, 1, 'last');
     if isempty(startId)

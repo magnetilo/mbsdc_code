@@ -1,7 +1,7 @@
 function [signals, saccadeParamsEstim, SSM] = separationHeuristics(signals, SSM, saccadeParamsEstim, blinksEstim)
 %%% Separation heuristics and blink interpolation
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % This function interpolates eye position during blinks and ensures that
 % the PSO-end point of each saccade is on exactly the same amplitude level
@@ -14,7 +14,7 @@ function [signals, saccadeParamsEstim, SSM] = separationHeuristics(signals, SSM,
 
 
 SACC_MARGIN_IN_SEC = 0.02;
-BLINK_MARGIN_IN_SEC = 0.04;
+BLINK_MARGIN_IN_SEC = 0.02;
 
 %%% Smoothly interpolate eye position during blinks: %%%
 SigmaZ = SSM.SIGMA_Z;

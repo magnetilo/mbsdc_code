@@ -2,7 +2,7 @@ function signalsAll = loadMonkeyData()
 %%% Script for creating 'signals{}'-cell with averaged monkey saccades and
 %%% averaged neural control signal
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 
 
 %% Step 1 - Get position, spikecounnts and time signals with David's script:

@@ -1,7 +1,7 @@
 function plotSaccades(signals, saccadeParamsEstim, varargin)
 %%% Plot estimated saccades (Fig. 5 in paper)
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Inputs:
 %  1. Estimate 'signals' for given data (e.g., using MBSD_main_simple.m)
@@ -191,7 +191,7 @@ if ~isempty(saccadeParamsTrue)
 end
 
 if p.Results.withYLabel
-    ylabel('Vel. $\dot\theta \; [^{\circ}]$', 'Interpreter', 'latex')
+    ylabel('Vel. $\dot\theta \; [^{\circ}$/s]', 'Interpreter', 'latex')
 else
     set(gca,'yticklabel',[])
 end

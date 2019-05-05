@@ -1,7 +1,7 @@
 function sampleClass = classifySamples(saccadeParams, blinks, velSpem, accSpem, Ts)
 %%% Classify eye movements on a sample-by-sample basis
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Output:
 %   @ sampleClass: Signal of length n that indicates the label of every sample of the 

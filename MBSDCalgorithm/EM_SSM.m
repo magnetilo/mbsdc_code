@@ -2,7 +2,7 @@ function [SSM, logEvidence] = EM_SSM(SSM, y, varargin)
 %%% EM algorithm for learning variances of sparse inputs and observation
 %%% noise
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Inputs:
 %   SSM.
@@ -88,7 +88,7 @@ end
 for iu=p.Results.SIGMA_U_updates
     alphaU = p.Results.SIGMA_U_prior(iu,1);
     betaU = p.Results.SIGMA_U_prior(iu,2);
-    threshold = 50 * 2*betaU/(2*alphaU + 1);
+    threshold = 20 * 2*betaU/(2*alphaU + 1);
     zeroIds = squeeze(abs(SSM.SIGMA_U(iu,iu,:))) < threshold;
     SSM.SIGMA_U(iu,iu,zeroIds) = 0;
 end

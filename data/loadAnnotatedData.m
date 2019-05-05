@@ -2,7 +2,7 @@ function [signalsAllH, signalsAllV, saccadeParamsTrueAll] = loadAnnotatedData(pa
 %%% Load the annotated data sets from Andersson 2017 into
 %%% cell-arrays signalsAllH and signalsAllV
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % The data sets can be downloaded at:
 % https://github.com/richardandersson/EyeMovementDetectorEvaluation

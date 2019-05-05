@@ -1,7 +1,7 @@
 function signals = extractSignals(signals, SSM)
 %%% Extract signals
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Return arguments:
 %   signals

@@ -1,7 +1,7 @@
 function [signals, SSM, saccadeParamsEstim, blinksEstim] = MBSD(signals, varargin)
 %%% MBSD framework as described in Weber et. al. 2018
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % input:
 %   signals.
@@ -53,9 +53,9 @@ addOptional(p, 'sigmaNoiseInit', 0.5, @isnumeric);
 addOptional(p, 'sigmaNoiseUpdate', true, @islogical);
 addOptional(p, 'alphaNoise', 0, @isnumeric);
 addOptional(p, 'alphaSacc', 0.5, @isnumeric);
-addOptional(p, 'betaSacc', 10e-7, @isnumeric);
+addOptional(p, 'betaSacc', 10e-6, @isnumeric);
 addOptional(p, 'alphaBlink', 8, @isnumeric);
-addOptional(p, 'betaBlink', 10e-7, @isnumeric);
+addOptional(p, 'betaBlink', 10e-6, @isnumeric);
 addOptional(p, 'sigmaFem', 0.5, @isnumeric);
 addOptional(p, 'sigmaSpem', 0.5, @isnumeric);
 addOptional(p, 'plantModelType', 'Zhou09Human', @ischar);

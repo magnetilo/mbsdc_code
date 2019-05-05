@@ -1,7 +1,7 @@
 function plotSignalSeparation(signals)
 %%% Plot estimated physical signals (Fig. 8 in paper)
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Inputs:
 %  1. Estimate 'signals' for given data (e.g., using MBSD_main_simple.m)

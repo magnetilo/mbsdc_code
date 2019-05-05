@@ -5,7 +5,7 @@ function [precision, ...
 %%% Calculates precision and recall for given true and detected saccade
 %%% parameters (detected with MBSD.m)
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 
 num_saccs_true = length(saccadeParamsTrue.startIds);

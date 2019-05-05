@@ -1,7 +1,7 @@
 function [messages, logLikelihood] = kalmanSmoothing(SSM, y)
 %%% Kalman Smoothing by Gaussian message passing
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Inputs:
 %   SSM.

@@ -2,7 +2,7 @@ function plotSpemAnalysis(signals, SSM)
 %%% For sinusoidal velocity SPEM model: Plot phase and amplitude of SPEM
 %%% velocity (Fig. 9 in paper)
 %
-% Copyright (C) Thilo Weber 2018 (see MIT license in the README.txt file)
+% Copyright (C) Thilo Weber 2019 (see MIT license in the README.txt file)
 %
 % Inputs:
 %  1. Estimate 'signals' and 'SSM' parameters for given sinusoidal SPEM
@@ -33,8 +33,8 @@ if isfield(signals, 'aSpem') && isfield(signals, 'fSpem')
     
     plot(time, signals.velTarget, '--', 'Color', [0.7 0.7 0.7])
     
-    ylabel('$\dot\theta \; [^{\circ}/s]$', 'Interpreter', 'latex')
-    %lgd = legend('Trained SPEM', 'Naive SPEM', 'Target');
+    ylabel('$\widehat{\dot\theta}{}^\textrm{SPEM} \; [^{\circ}$/s]', 'Interpreter', 'latex')
+    legend('SPEM', 'Target');
     %set(lgd, 'Interpreter', 'latex')
     set(gca,'FontSize',FONT_SIZE)
     axis([0 t_max -inf inf])
@@ -57,8 +57,9 @@ if isfield(signals, 'aSpem') && isfield(signals, 'fSpem')
 %     plot(time, sqrt(spemSinBad.^2 + spemCosBad.^2), 'Color', colors.lines(2,:), 'LineWidth', LINE_WIDTH)
     plot(time, 2*pi*fSpem*aSpem*ones(length(time), 1), '--', 'Color', [0.7 0.7 0.7])
     
-    ylabel('Amplitude [°]')
-    %legend('Good SPEM', 'Bad SPEM', 'Target');
+    ylabel('Amplitude [$^{\circ}$]', 'Interpreter', 'latex')
+    lgd = legend('SPEM', 'Target');
+    set(lgd, 'Location', 'Southeast')
     set(gca,'FontSize',FONT_SIZE)
     axis([0 4 -1 10+2*pi*fSpem*aSpem])
     hold off
@@ -72,9 +73,9 @@ if isfield(signals, 'aSpem') && isfield(signals, 'fSpem')
         -sin(2*pi*fSpem*(time-max(time)/2))), '--', 'Color', [0.7 0.7 0.7])
     
     axis([0 4 -2 4])
-    ylabel('Phase')
-    xlabel('Time [s]')
-    %legend('Good SPEM', 'Bad SPEM', 'Target');
+    ylabel('Phase', 'Interpreter', 'latex')
+    xlabel('Time [s]', 'Interpreter', 'latex')
+    legend('SPEM', 'Target');
     set(gca,'FontSize',FONT_SIZE)
     hold off
     
