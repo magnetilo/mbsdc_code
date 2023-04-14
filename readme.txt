@@ -12,10 +12,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 —————————————————————————————————————————————————————
 This directory contains the MATLAB implementation for the paper:
 
-„Model-based Separation, Detection, and Classification of Eye Movements,“ F. Wadehn, T. Weber, D. J. Mack, T. Heldt, H.-A. Loeliger, 
+F. Wadehn, T. Weber, D. J. Mack, T. Heldt and H. -A. Loeliger, "Model-Based Separation, Detection, and Classification of Eye Movements," in IEEE Transactions on Biomedical Engineering, vol. 67, no. 2, pp. 588-600, Feb. 2020, https://doi.org/10.1109/TBME.2019.2918986
 
 When using the frame work, please cite:
-{ bibtex }
+@ARTICLE{8726166,
+  author={Wadehn, Federico and Weber, Thilo and Mack, David J. and Heldt, Thomas and Loeliger, Hans-Andrea},
+  journal={IEEE Transactions on Biomedical Engineering}, 
+  title={Model-Based Separation, Detection, and Classification of Eye Movements}, 
+  year={2020},
+  volume={67},
+  number={2},
+  pages={588-600},
+  doi={10.1109/TBME.2019.2918986}}
+
 
 —————————————————————————————————————————————————————
 HOWTO:
